@@ -15,7 +15,7 @@ class Hood(models.Model):
         manual_crop='1280x720')
     admin = models.ForeignKey("Profile", related_name='hoods')
     description = models.TextField(default='Random group')
-    datecreated = models.DateField(_("Date"), default=datetime.date.today)
+    datecreated = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.name
@@ -27,8 +27,7 @@ class Profile(models.Model):
     prof_pic = ImageField(
         manual_crop='200x200')
     bio = models.TextField(default="Welcome to the hood")
-    hoodwatch = models.ForeignKey(
-        hood, blank=True, null=True, related_name='people')
+    hoodwatch = models.ForeignKey(Hood, blank=True, null=True, related_name='people')
 
     def __str__(self):
         return f'Profile {self.user.Name}'
