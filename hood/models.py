@@ -16,6 +16,7 @@ class Hood(models.Model):
     admin = models.ForeignKey("Profile", related_name='hoods')
     description = models.TextField(default='Random group')
     datecreated = models.DateField(auto_now_add=True)
+    occupants_count = models.CharField(max_length=20, null=True)
 
     def __str__(self):
         return self.name
@@ -27,7 +28,9 @@ class Profile(models.Model):
     prof_pic = ImageField(
         manual_crop='200x200')
     bio = models.TextField(default="Welcome to the hood")
-    hoodwatch = models.ForeignKey(Hood, blank=True, null=True, related_name='people')
+    hoodwatch = models.ForeignKey(
+        Hood, blank=True, null=True, related_name='people')
+    email = models.EmailField(max_length=75, null=True)
 
     def __str__(self):
         return f'Profile {self.user.Name}'
@@ -50,11 +53,12 @@ class Business(models.Model):
     name = models.TextField()
     b_owner = models.ForeignKey(Profile)
     contact = models.CharField(max_length=20)
+    email = models.EmailField(max_length=75, null=True)
     description = models.TextField(default='hood business')
     hood = models.ForeignKey(Hood, related_name='business')
 
 
 class Post(models.Model):
     user = models.ForeignKey(Profile)
-    Text = models.TextField()
+    Text = models.TextField(null=True)
     hoodwatch = models.ForeignKey(Hood, related_name='posts')
