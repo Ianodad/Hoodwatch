@@ -5,36 +5,36 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+      <meta charset="utf-8">
 
-    {% block styles %}
-    {% bootstrap_css %}
-    <link rel="stylesheet"
-          href="{% static 'css/base.css' %}">
-    <link rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-          crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Oleo+Script"
-          rel="stylesheet">
-    {% endblock %}
+      {% block styles %}
+      {% bootstrap_css %}
+      <link rel="stylesheet"
+            href="{% static 'css/base.css' %}">
+      <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+            crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Oleo+Script"
+            rel="stylesheet">
+      {% endblock %}
 
 </head>
 
 <body>
-    {% include "navbar.html" %}
+      {% include "navbar.html" %}
 
-    {% block content %}
+      {% block content %}
 
-    {% endblock %}
+      {% endblock %}
 
 
-    {% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script charset="utf-8"
-            src="https://ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
-    {% bootstrap_javascript %}
-    {% endblock %}
+      {% block scripts %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script charset="utf-8"
+              src="https://ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
+      {% bootstrap_javascript %}
+      {% endblock %}
 
 </body>
 

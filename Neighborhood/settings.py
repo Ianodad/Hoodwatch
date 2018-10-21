@@ -84,7 +84,10 @@ DATABASES = {
     }
 }
 
-
+UPLOADCARE = {
+    'pub_key': '97dcd2a8c58a3a848496',
+    'secret': '1c005c6f8555510e7e96',
+}
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 

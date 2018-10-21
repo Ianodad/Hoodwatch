@@ -6,3 +6,7 @@ def home(request):
 
     welcome = "welcome to the home page"
     return render(request, 'hood/home.html', {"welcome": welcome})
+
+def createhood(request):
+
+    
