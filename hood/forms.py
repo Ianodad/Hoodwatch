@@ -14,7 +14,7 @@ class Hoodform(forms.ModelForm):
         fields = ["name", "image", "description", "occupants_count"]
 
 
-class BusinessForm (forms.ModelForm):
+class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
         fields = ["name", "b_owner", "contac", "email", "description"]
