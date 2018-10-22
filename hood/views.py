@@ -7,7 +7,7 @@ from urllib import request
 
 # Create your views here.
 
-
+@login_required(login_url='/accounts/login/')
 def home(request):
     # current_user = request.user.profile
     # print(current_user)

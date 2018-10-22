@@ -125,7 +125,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-LOGIN_REDIRECT_URL = "profile"
+LOGIN_REDIRECT_URL = "home"
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
