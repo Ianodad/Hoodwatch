@@ -4,6 +4,14 @@
     {{welcome}}
 
     <div class="watch d-flex flex-wrap">
+        <div class="add_hood"
+             id="con2"
+             data-toggle="modal"
+             data-target="#myModal">
+            <button type="button"
+                    class="btn btn-outline-info btn-rounded waves-effect"><i class="far fa-plus-square fa-5x"></i>
+            </button>
+        </div>
         <div id="con2">
             <div class="zayn_2 shadow">
                 <span class="pop">Popular</span> <span class="date">July 2017</span>
@@ -14,42 +22,34 @@
                 <h4>He is not a lover who does not love forever.</h4>
             </div>
         </div>
-        <div class="add_hood" toggle="modal" data-target="#largeModal"
-             id="con2">
-            <i class="far fa-plus-square fa-5x"></i>
-        </div>
     </div>
-    <div class="modal fade"
-         id="largeModal"
-         tabindex="-1"
-         role="dialog"
-         aria-labelledby="basicModal"
-         aria-hidden="true">
+    <div class="modal fade modal-bottom"
+         id="myModal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title"
-                        id="myModalLabel">Large Modal</h4>
-                    <button type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h5 class="modal-title">POST IMAGE</h5>
+                    <button class="close"
+                            data-dismiss="modal"><span>&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <h3>Modal Body</h3>
+    
+                    <form class="d-flex flex-column"
+                          action="{% url 'home' %}"
+                          method="POST"
+                          enctype="multipart/form-data">
+                        {% csrf_token %} {{ form }}
+                        <input type="submit"
+                               class="btn btn-success btn-lg"
+                               value="POST">
+                    </form>
+    
                 </div>
                 <div class="modal-footer">
-                    <button type="button"
-                            class="btn btn-default"
-                            data-dismiss="modal">Close</button>
-                    <button type="button"
-                            class="btn btn-primary">Save changes</button>
+                    <button class="btn btn-secondary">Close</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 {% endblock %}
