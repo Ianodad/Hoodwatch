@@ -4,7 +4,6 @@
 {% block content %}
 <div class="container-fluid main">
     {{welcome}}
-    {% for hood in hoods %}
 
     <div class="watch d-flex flex-wrap">
         <div class="add_hood"
@@ -15,19 +14,26 @@
                     class="btn btn-outline-info btn-rounded waves-effect"><i class="far fa-plus-square fa-5x"></i>
             </button>
         </div>
+        {% for hood in hoods %}
+
         <div id="con2">
             <div class="zayn_2 shadow"
                  style="
                  background-image:
                  url({{hood.image}})">
                 <span class="
-                 pop">Popular</span> <span class="date">{{hoods.datecreated}}</span>
+                 pop">{{hood.occupants_count}}</span> <span class="date">{{hoods.datecreated}}</span>
 
                 <div class="overlay"></div>
 
-
                 <h4>{{hood.description}}</h4>
+                <a href="/hood/{{hood.id}}"
+                   class="btn btn-outline-primary d-flex align-items-start flex-column"
+                   role="
+                   button"
+                   aria-pressed="true">Join link</a>
             </div>
+
         </div>
     </div>
     {% endfor %}

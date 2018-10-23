@@ -30,16 +30,16 @@ class Hood(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.TextField(default="Anonymous")
+    name = models.TextField(default="Your Name")
     prof_pic = ImageField(
         manual_crop='200x200')
-    bio = models.TextField(default="Welcome to the hood")
+    bio = models.TextField(default="Tell us something")
     hoodwatch = models.ForeignKey(
         Hood, blank=True, null=True, related_name='people')
     email = models.EmailField(max_length=75, null=True)
 
     def __str__(self):
-        return f'Profile {self.user.Name}'
+        return f'Profile {self.user}'
 
     @classmethod
     def get_profile(cls, name):
@@ -57,7 +57,7 @@ def post_save_user_model_receiver(sender, instance, created, *args, **kwargs):
 
 class Business(models.Model):
     name = models.TextField()
-    b_owner = models.ForeignKey(Profile)
+    b_owner = models.ForeignKey(null=True)
     contact = models.CharField(max_length=20)
     email = models.EmailField(max_length=75, null=True)
     description = models.TextField(default='hood business')
