@@ -1,11 +1,10 @@
-# Instagram Application.
+# Hoodwatch Application.
 
- This application is a clone for the original instagram. It allows a user to upload photo and share amog friends
-#### By **Ian Odhiambo ** created on, October 06th 2018 
+ This is a application athat keeps track of what happens around the hood. 
+#### By **Ian Odhiambo ** created on, October 23th 2018 
 
 ## Description
 
-This application allows user to create and login into a profile. The user can then go ahead to upload images to the main wall where other users can follow and like.
 
 
 ## Development and Setup.
@@ -13,7 +12,7 @@ This application allows user to create and login into a profile. The user can th
 ### Prerequisites
 
  * Internet access
- * git clone https://github.com/ianodad/instagram.git
+ * git clone https://github.com/ianodad/hoodwatch.git
  * cd Gallery
 
 #### To install a virtual environment
