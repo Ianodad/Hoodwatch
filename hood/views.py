@@ -9,14 +9,14 @@ from urllib import request
 
 @login_required(login_url='/accounts/login/')
 def home(request):
-    # current_user = request.user.profile
+    current_user = request.user
     # print(current_user)
     if request.method == 'POST':
         formhood = Hoodform(request.POST, request.FILES)
         if formhood.is_valid():
             upload = formhood.save(commit=False)
-            upload.admin = request.user.profile
-            request.user.profile.save()
+            # upload.admin = current_user.profile.user
+            # request.user.profile.save()
             upload.save()
             return redirect('home')
     else:
@@ -26,3 +26,8 @@ def home(request):
 
     hoods = Hood.objects.all()
     return render(request, 'hood/home.html', {"welcome": welcome, "formhood": formhood, "hoods": hoods})
+
+
+def profile(request):
+
+    return render(request, 'hood/profile.html')
