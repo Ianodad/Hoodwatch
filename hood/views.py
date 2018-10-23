@@ -36,5 +36,16 @@ def profile(request):
 def neighborhood(request):
 
     # hood = get_object_or_404(Post, pk=hood_id)
+    if request.method == 'POST':
+        formbiz = BusinessForm(request.POST, request.FILES)
+        if formbiz.is_valid():
+            addbiz = formbiz.save(commit=False)
+            # upload.admin = current_user.profile
+            # request.user.profile.save()
+            addbiz.save()
+            return redirect('hood')
+    else:
 
-    return render(request, 'hood/hood.html', {})
+        formbiz = BusinessForm()
+
+    return render(request, 'hood/hood.html', {"formbiz": formbiz})
