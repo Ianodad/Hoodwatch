@@ -24,12 +24,17 @@ def home(request):
         formhood = Hoodform()
     welcome = "welcome to the home page"
 
-    
     hoods = Hood.objects.all()
-    print(hoods.)
     return render(request, 'hood/home.html', {"welcome": welcome, "formhood": formhood, "hoods": hoods})
 
 
 def profile(request):
 
     return render(request, 'hood/profile.html')
+
+
+def neighborhood(request):
+
+    # hood = get_object_or_404(Post, pk=hood_id)
+
+    return render(request, 'hood/hood.html', {})
