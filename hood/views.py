@@ -15,7 +15,7 @@ def home(request):
         formhood = Hoodform(request.POST, request.FILES)
         if formhood.is_valid():
             upload = formhood.save(commit=False)
-            # upload.admin = current_user.profile.user
+            # upload.admin = current_user.profile
             # request.user.profile.save()
             upload.save()
             return redirect('home')
@@ -24,7 +24,9 @@ def home(request):
         formhood = Hoodform()
     welcome = "welcome to the home page"
 
+    
     hoods = Hood.objects.all()
+    print(hoods.)
     return render(request, 'hood/home.html', {"welcome": welcome, "formhood": formhood, "hoods": hoods})
 
 

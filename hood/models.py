@@ -13,7 +13,7 @@ class Hood(models.Model):
     name = models.TextField()
     image = ImageField(
         manual_crop='1280x720')
-    admin = models.ForeignKey("Profile", related_name='hoods')
+    admin = models.ForeignKey("Profile", related_name='hoods', null=True)
     description = models.TextField(default='Random group')
     datecreated = models.DateField(auto_now_add=True)
     occupants_count = models.CharField(max_length=20, null=True)

@@ -4,6 +4,7 @@
 {% block content %}
 <div class="container-fluid main">
     {{welcome}}
+    {% for hood in hoods %}
 
     <div class="watch d-flex flex-wrap">
         <div class="add_hood"
@@ -15,16 +16,22 @@
             </button>
         </div>
         <div id="con2">
-            <div class="zayn_2 shadow">
-                <span class="pop">Popular</span> <span class="date">July 2017</span>
+            <div class="zayn_2 shadow"
+                 style="
+                 background-image:
+                 url({{hood.image}})">
+                <span class="
+                 pop">Popular</span> <span class="date">{{hoods.datecreated}}</span>
 
                 <div class="overlay"></div>
 
 
-                <h4>He is not a lover who does not love forever.</h4>
+                <h4>{{hood.description}}</h4>
             </div>
         </div>
     </div>
+    {% endfor %}
+
     <div class="modal fade modal-bottom"
          id="myModal">
         <div class="modal-dialog modal-lg">
