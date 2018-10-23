@@ -15,7 +15,7 @@ def home(request):
         formhood = Hoodform(request.POST, request.FILES)
         if formhood.is_valid():
             upload = formhood.save(commit=False)
-            # upload.admin = current_user.profile
+            upload.admin = current_user.profile
             # request.user.profile.save()
             upload.save()
             return redirect('home')
@@ -34,12 +34,14 @@ def profile(request):
 
 
 def neighborhood(request):
+    current_user = request.user
 
     # hood = get_object_or_404(Hood, pk=hood_id)
     if request.method == 'POST':
         formbiz = BusinessForm(request.POST, request.FILES)
         if formbiz.is_valid():
             addbiz = formbiz.save(commit=False)
+            addbiz.hood = hood_id
             # upload.admin = current_user.profile
             # request.user.profile.save()
             addbiz.save()
@@ -52,7 +54,9 @@ def neighborhood(request):
         formpost = PostForm(request.POST, request.FILES)
         if formpost.is_valid():
             addpost = formpost.save(commit=False)
-            # upload.admin = current_user.profile
+            addpost.hoodwatch = hood_id
+            addpost.user = current_user
+            # upload.admin = current_user.profile0
             # request.user.profile.save()
             addpost.save()
             return redirect('hood')
