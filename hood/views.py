@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from .forms import ProfileForm, Hoodform, BusinessForm
+from .forms import ProfileForm, Hoodform, BusinessForm, PostForm
 from django.contrib.auth.decorators import login_required
-from .models import Hood, Profile, Business
+from .models import Hood, Profile, Business, Post
 from urllib import request
 
 
@@ -35,7 +35,7 @@ def profile(request):
 
 def neighborhood(request):
 
-    # hood = get_object_or_404(Post, pk=hood_id)
+    # hood = get_object_or_404(Hood, pk=hood_id)
     if request.method == 'POST':
         formbiz = BusinessForm(request.POST, request.FILES)
         if formbiz.is_valid():
@@ -48,4 +48,19 @@ def neighborhood(request):
 
         formbiz = BusinessForm()
 
-    return render(request, 'hood/hood.html', {"formbiz": formbiz})
+    if request.method == 'POST':
+        formpost = PostForm(request.POST, request.FILES)
+        if formpost.is_valid():
+            addpost = formpost.save(commit=False)
+            # upload.admin = current_user.profile
+            # request.user.profile.save()
+            addpost.save()
+            return redirect('hood')
+    else:
+
+        formpost = PostForm()
+
+        # post = get_object_or_404(Post, hoodwatch=hood_id)
+        # hood = get_object_or_404(Hood, pk=hood_id)
+        # business = get_object_or_404(Business, hood=hood_id)
+    return render(request, 'hood/hood.html', {"formbiz": formbiz, "formpost": formpost})

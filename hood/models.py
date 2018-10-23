@@ -7,6 +7,11 @@ import datetime
 
 
 # Create your models here.
+class Location(models.Model):
+    name = models.CharField(max_length=100, null=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Hood(models.Model):
@@ -15,6 +20,7 @@ class Hood(models.Model):
         manual_crop='1280x720')
     admin = models.ForeignKey("Profile", related_name='hoods', null=True)
     description = models.TextField(default='Random group')
+    location = models.ForeignKey(Location, null=True)
     datecreated = models.DateField(auto_now_add=True)
     occupants_count = models.CharField(max_length=20, null=True)
 

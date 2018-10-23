@@ -1,17 +1,21 @@
 {% extends 'hood/base.html'%}
 {% block content %}
+{% load crispy_forms_tags %}
 
 <div class="container-fluid">
+    <div class="add_hood"
+         id="con2"
+         data-toggle="modal"
+         data-target="#myModal">
+        <button type="button"
+                class="btn btn-outline-info btn-rounded waves-effect"><i class="far fa-plus-square fa-5x"></i>
+        </button>
+    </div>
     <div class="container">
         <div class="hoodland">
             <img src=""
                  alt="">
         </div>
-        <button type="button"
-                class="btn btn-outline-info btn-rounded waves-effect"
-                data-toggle="modal"
-                data-target="#myModal"><i class="far fa-plus-square fa-5x"></i>
-        </button>
         <div class="container-fluid mt-5 mb-5">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -31,6 +35,17 @@
                     </ul>
                 </div>
             </div>
+            <div class="comment">
+                <form class="d-flex flex-column"
+                      action="{% url 'hood' %}"
+                      method="POST"
+                      enctype="multipart/form-data">
+                    {% csrf_token %} {{ formpost | crispy }}
+                    <input type="submit"
+                           class="btn btn-success btn-lg"
+                           value="POST">
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -47,7 +62,7 @@
             <div class="modal-body">
 
                 <form class="d-flex flex-column"
-                      action="{% url 'home' %}"
+                      action="{% url 'hood' %}"
                       method="POST"
                       enctype="multipart/form-data">
                     {% csrf_token %} {{ formbiz |crispy }}
