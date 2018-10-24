@@ -28,6 +28,7 @@ def home(request):
     return render(request, 'hood/home.html', {"welcome": welcome, "formhood": formhood, "hoods": hoods})
 
 
+@login_required(login_url='/accounts/login/')
 def add_profile(request):
     current_user = request.user
 
@@ -49,6 +50,7 @@ def profile(request):
     return render(request, 'hood/profile.html')
 
 
+@login_required(login_url='/accounts/login/')
 def neighborhood(request, hood_id):
     current_user = request.user
 
