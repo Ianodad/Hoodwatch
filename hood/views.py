@@ -3,6 +3,7 @@ from .forms import ProfileForm, Hoodform, BusinessForm, PostForm
 from django.contrib.auth.decorators import login_required
 from .models import Hood, Profile, Business, Post
 from urllib import request
+from django.db.models import Q
 
 
 # Create your views here.
@@ -45,6 +46,7 @@ def add_profile(request):
     return render(request, 'hood/add_profile.html', {"formpro": formpro})
 
 
+@login_required(login_url='/accounts/login/')
 def profile(request):
 
     return render(request, 'hood/profile.html')
@@ -84,3 +86,16 @@ def neighborhood(request, hood_id):
         hood = get_object_or_404(Hood, pk=hood_id)
         # business = get_object_or_404(Business, hood=hood_id)
     return render(request, 'hood/hood.html', {"formbiz": formbiz, "formpost": formpost, "hood": hood})
+
+
+@login_required(login_url='/accounts/login/')
+def search(request):
+
+    query = request.GET.get('q')
+    print(query)
+    if query:
+        results = Hood.objects.filter(
+            Q(name__icontains=query))
+    else:
+        results = Hood.objects.all()
+    return render(request, 'pages/search.html', {'results': results})
