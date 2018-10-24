@@ -23,6 +23,13 @@
 
 
 
+#con {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 200px;
+    height: auto;
+}
+
 #con2 {
     width: 75%;
     margin: 0 auto;
@@ -30,7 +37,19 @@
     height: auto;
 }
 
+#con3 {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 30px;
+    height: auto;
+}
 
+.con4 {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 30px;
+    height: auto;
+}
 
 h4 {
     width: 90%;
@@ -49,11 +68,26 @@ h4 {
     -webkit-animation: colorchange 5s infinite alternate;
 }
 
+.zayn_1 {
+    position: relative;
+    margin-top: -150px;
+    background: url(http://i.huffpost.com/gen/1960925/images/o-COOLEST-CITIES-IN-AMERICA-facebook.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-bottom: 3px solid rgba(255, 162, 52, 0.8);
+    width: 100%;
+    height: 280px;
+    border-radius: 6px;
+    box-shadow: 5px 5px 30px 0px rgba(46, 61, 73, 0.9);
+    transition: all 0.3s ease;
+
+}
 
 .zayn_2 {
     position: relative;
     margin-top: 1px;
-    /* background: url(https://i.ytimg.com/vi/fwoDwajwqdo/maxresdefault.jpg); */
+    background: url(https://i.ytimg.com/vi/fwoDwajwqdo/maxresdefault.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -65,8 +99,36 @@ h4 {
     transition: all 0.3s ease;
 }
 
+.zayn_3 {
+    position: relative;
+    float: right;
+    margin-top: -304px;
+    background: url(https://i.ytimg.com/vi/kD0jh_S975M/maxresdefault.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-bottom: 3px solid rgba(169, 81, 237, 0.8);
+    width: 49%;
+    height: 300px;
+    border-radius: 6px;
+    box-shadow: 5px 5px 30px 0px rgba(46, 61, 73, 0.9);
+    transition: all 0.3s ease;
+}
 
-
+.zayn_4 {
+    position: relative;
+    margin-top: 1px;
+    background: url(http://www.lolwot.com/wp-content/uploads/2015/02/top-16-coolest-buildings-in-the-world.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-bottom: 3px solid rgba(255, 84, 131, 0.8);
+    width: 100%;
+    height: 280px;
+    border-radius: 6px;
+    box-shadow: 5px 5px 30px 0px rgba(46, 61, 73, 0.9);
+    transition: all 0.3s ease;
+}
 
 .new {
     color: #fff;
@@ -79,7 +141,181 @@ h4 {
     border-radius: 50px 120px 120px;
 }
 
-/*  */
+.zayn_form {
+    position: relative;
+    margin-top: -150px;
+    background: #fafafa;
+    border-bottom: 3px solid rgba(255, 162, 52, 0.8);
+    width: 100%;
+    height: 280px;
+    border-radius: 6px;
+    box-shadow: 5px 5px 30px 0px rgba(46, 61, 73, 0.9);
+    transition: all 0.3s ease;
+}
+
+/*
+.form-title{
+	position: relative;
+	text-align: center;
+	margin-bottom: 40px;
+}
+ input{
+	 margin-top: 50px;
+	 margin-left: 95px;
+	 width: 50%;
+    display: inline-block;
+    text-align: center;
+    border-radius: 7px;
+    background: rgba(238, 238, 238, 1);
+    padding: 1em 1em;
+    outline: none;
+    border: none;
+    color: rgba(2, 204, 186, 0.4);
+    transition: 0.3s linear;
+}
+::placeholder {
+    color: rgba(2, 204, 186, 0.9);
+}
+input:focus {
+    background: rgba(2, 204, 186, 0.4);
+}
+*/
+.date-1 {
+    color: #fff;
+    z-index: 1;
+    background: #b24592;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #b24592, #f15f79);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #b24592, #f15f79);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: absolute;
+    left: 80%;
+    top: 3%;
+    padding: 9px;
+    border-radius: 50px 120px 120px;
+}
+
+.date {
+    color: #fff;
+    z-index: 1;
+    background: #b24592;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #b24592, #f15f79);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #b24592, #f15f79);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: absolute;
+    left: 71%;
+    top: 3%;
+    padding: 9px;
+    border-radius: 50px 120px 120px;
+}
+
+.pop {
+    color: #fff;
+    z-index: 1;
+    position: absolute;
+    left: 2%;
+    top: 3%;
+    padding: 15px;
+    background: linear-gradient(to right, #fa3350 0%, #fa3380 100%);
+    border-radius: 50px 120px 120px;
+}
+
+.lat {
+    color: #fff;
+    z-index: 1;
+    position: absolute;
+    left: 2%;
+    top: 3%;
+    padding: 15px;
+    background: linear-gradient(to right, deeppink 0%, #fa3380 100%);
+    border-radius: 50px 120px 120px;
+}
+
+.free {
+    color: #fff;
+    z-index: 1;
+    position: absolute;
+    left: 2%;
+    top: 3%;
+    padding: 15px;
+    background: linear-gradient(to right, deepskyblue 0%, skyblue 100%);
+    border-radius: 50px 120px 120px;
+}
+
+.overlay {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(000, 000, 000, 0.6);
+    border-radius: 6px;
+}
+
+
+
+@media only screen and (max-width: 840px) {
+
+    h4 {
+        font-size: 24px;
+    }
+
+    .zayn_2 {
+        position: relative;
+        width: 100%;
+    }
+
+    .zayn_3 {
+        position: relative;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .zayn_4 {
+        position: relative;
+        width: 100%;
+        margin-top: 360px;
+    }
+
+    .date {
+        left: 70%;
+    }
+
+    .date-1 {
+        left: 70%;
+    }
+}
+
+.footer {
+    margin-top: 50px;
+    position: absolute;
+    background: #b24592;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #b24592, #f15f79);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #b24592, #f15f79);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 15px;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.footer h1 {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+
+.shadow:hover {
+    box-shadow: 5px 1px 10px 0px rgba(46, 61, 73, 0.1);
+    transition: all 0.3s ease;
+}
 
 
 

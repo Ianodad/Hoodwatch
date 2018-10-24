@@ -11,7 +11,8 @@ class ProfileForm(forms.ModelForm):
 class Hoodform(forms.ModelForm):
     class Meta:
         model = Hood
-        fields = ["name", "image", "description", "occupants_count"]
+        fields = ["name", "image", "description",
+                  "location"]
 
 
 class BusinessForm(forms.ModelForm):

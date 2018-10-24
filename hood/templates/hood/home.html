@@ -3,7 +3,6 @@
 
 {% block content %}
 <div class="container-fluid main">
-    {{welcome}}
 
     <div class="watch d-flex flex-wrap">
         <div class="add_hood"
@@ -22,10 +21,10 @@
                  background-image:
                  url({{hood.image}})">
                 <span class="
-                 pop">{{hood.occupants_count}}</span> <span class="date">{{hoods.datecreated}}</span>
+                 pop">{{hood.occupants_count}}</span> <span class="date">{{hoods.name}}</span>
 
                 <div class="overlay"></div>
-
+                <h2>{{hood.name}}</h2>
                 <h4>{{hood.description}}</h4>
                 <a href="/hood/{{hood.id}}"
                    class="btn btn-outline-primary d-flex align-items-start flex-column"
