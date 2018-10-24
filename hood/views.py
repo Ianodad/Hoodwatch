@@ -15,7 +15,7 @@ def home(request):
         formhood = Hoodform(request.POST, request.FILES)
         if formhood.is_valid():
             upload = formhood.save(commit=False)
-            # upload.admin = request.user.profile
+            upload.admin = request.user.profile
             # request.user.profile.save()
             upload.save()
             return redirect('home')

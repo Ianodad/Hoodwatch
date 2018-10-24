@@ -57,7 +57,7 @@ def post_save_user_model_receiver(sender, instance, created, *args, **kwargs):
 
 class Business(models.Model):
     name = models.TextField()
-    b_owner = models.ForeignKey(null=True)
+    b_owner = models.CharField(max_length=20)
     contact = models.CharField(max_length=20)
     email = models.EmailField(max_length=75, null=True)
     description = models.TextField(default='hood business')
