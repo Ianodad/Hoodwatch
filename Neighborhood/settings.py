@@ -11,21 +11,49 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import django_heroku
+import dj_database_url
+from decouple import config, Csv
+
+MODE = config("MODE", default="dev")
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# development
+if config('MODE') == "dev":
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': config('DB_NAME'),
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+            'HOST': config('DB_HOST'),
+            'PORT': '',
+        }
 
+    }
+# production
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=config('DATABASE_URL')
+        )
+    }
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'wqvp2e1-doxhku2sen0psh@u%^gdgio21jk_0!sm4^bd^l!5-a'
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+UPLOADCARE = {
+    # Don’t forget to set real keys when it gets real :)
 
-ALLOWED_HOSTS = []
+    'pub_key': config('PUB_KEY'),
+    'secret': config('SECRET'),
+}
 
 
 # Application definition
@@ -50,6 +78,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'Neighborhood.urls'
@@ -107,6 +136,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -123,6 +157,8 @@ USE_TZ = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 LOGIN_REDIRECT_URL = "home"
@@ -132,3 +168,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
