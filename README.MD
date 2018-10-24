@@ -5,7 +5,7 @@
 
 ## Description
 
-
+The users can regsiter on the site and the proceed to to login in. The diffrent users can than add various hoods. User can then join other hoods etc 
 
 ## Development and Setup.
 
